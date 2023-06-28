@@ -16,16 +16,7 @@ class ArticleController
     // Note: this function can also be used in a repository - the choice is yours
     private function getArticles()
     {
-        // TODO: prepare the database connection
-        $dbHost = 'localhost';
-        $dbName = 'becode';
-        $dbUser = 'root';
-        $dbPwd = '';
-
-        $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPwd);
-        
-        $stmt = $pdo->query('SELECT id, title, description, publish_date FROM article');
-        $rawArticles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        require 'connect.php';
         // TODO: fetch all articles as $rawArticles (as a simple array)
 
         $articles = [];
