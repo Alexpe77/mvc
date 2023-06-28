@@ -13,7 +13,6 @@ class ArticleController
         require '../view/articles/index.php';
     }
 
-    // Note: this function can also be used in a repository - the choice is yours
     private function getArticles()
     {
         require 'connect.php';
@@ -22,7 +21,7 @@ class ArticleController
         $articles = [];
         foreach ($rawArticles as $rawArticle) {
             $id = (int) $rawArticle['id'];
-            $articles[] = new Article($rawArticle['title'], $rawArticle['description'], $rawArticle['publish_date']);
+            $articles[] = new Article($id, $rawArticle['title'], $rawArticle['description'], $rawArticle['publish_date']);
         }
 
         return $articles;
