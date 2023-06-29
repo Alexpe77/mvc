@@ -19,6 +19,7 @@ class ArticleController
         // TODO: fetch all articles as $rawArticles (as a simple array)
 
         $articles = [];
+        
         foreach ($rawArticles as $rawArticle) {
             $id = (int) $rawArticle['id'];
             $articles[] = new Article($id, $rawArticle['title'], $rawArticle['description'], $rawArticle['publish_date']);

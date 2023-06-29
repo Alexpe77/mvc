@@ -1,19 +1,27 @@
 <?php
 // TODO: prepare the database connection
-require 'config.php';
 
 class Database
 {
         private $pdo;
+        private $dbhost;
+        private $dbname;
+        private $dbuser;
+        private $dbpwd;
 
         public function __construct($dbhost, $dbname, $dbuser, $dbpwd)
         {
-                try {
-                        $dsn = "mysql:host=$dbhost;dbname=$dbname";
-                        $dboptions = array(
-                                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-                        );
+                $this->dbhost = $dbhost;
+                $this->dbname = $dbname;
+                $this->dbuser = $dbuser;
+                $this->dbpwd = $dbpwd;
 
+                $dsn = "mysql:host=$dbhost;dbname=$dbname";
+                $dboptions = array(
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+                );
+
+                try {
                         $this->pdo = new PDO($dsn, $dbuser, $dbpwd, $dboptions);
                 } catch (PDOException $e) {
                         die("Something went wrong : " . $e->getMessage());
@@ -27,5 +35,7 @@ class Database
                 return $stmt;
         }
 }
+
+$db = new Database('localhost', 'article', 'root', '' );
 
 ?>
