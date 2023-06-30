@@ -19,9 +19,9 @@ class Database
         public function getConnection() {
 
                 try {
-                        $connect = new PDO('mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpwd');
+                        $connect = new PDO("mysql:host=$this->dbhost;dbname=$this->dbname", $this->dbuser, $this->dbpwd);
                         $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                        echo "Connected successfully";
+                        
                         return $connect;
                     
                 } catch (PDOException $e) {

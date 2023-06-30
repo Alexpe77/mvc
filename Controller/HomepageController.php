@@ -9,6 +9,6 @@ class HomepageController
         // For the home, we don't need to load anything
 
         // Load the view
-        require './view/home.php';
+        require 'View/home.php';
     }
 }
