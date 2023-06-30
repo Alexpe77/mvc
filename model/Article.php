@@ -28,7 +28,8 @@ class Article
 
         return $formattedDate;
     }
+
+    public function getId() {
+        return $this->id;
+    }
 }
-
-
-?>

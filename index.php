@@ -7,11 +7,11 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 //include all your model files here
-require 'Model/connect.php';
-require 'Model/Article.php';
+require 'model/connect.php';
+require 'model/Article.php';
 //include all your controllers here
-require 'Controller/HomepageController.php';
-require 'Controller/ArticleController.php';
+require 'controllers/HomepageController.php';
+require 'controllers/ArticleController.php';
 
 // Get the current page to load
 // If nothing is specified, it will remain empty (home should be loaded)
@@ -28,6 +28,7 @@ switch ($page) {
         break;
     case 'articles-show':
         // TODO: detail page
+        break;
     case 'home':
     default:
         (new HomepageController())->index();

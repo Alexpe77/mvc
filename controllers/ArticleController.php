@@ -18,8 +18,12 @@ class ArticleController
         require 'connect.php';
         // TODO: fetch all articles as $rawArticles (as a simple array)
 
+        $query = "SELECT id, title, description, publish_date FROM articles";
+        $stmt = $db->executeQuery($query);
+        $rawArticles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         $articles = [];
-        
+
         foreach ($rawArticles as $rawArticle) {
             $id = (int) $rawArticle['id'];
             $articles[] = new Article($id, $rawArticle['title'], $rawArticle['description'], $rawArticle['publish_date']);

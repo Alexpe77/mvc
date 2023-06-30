@@ -3,39 +3,32 @@
 
 class Database
 {
-        private $pdo;
         private $dbhost;
         private $dbname;
         private $dbuser;
         private $dbpwd;
 
-        public function __construct($dbhost, $dbname, $dbuser, $dbpwd)
+        public function __construct(string $dbhost = 'localhost', string $dbname = 'becode', string $dbuser = 'root', string $dbpwd = '')
         {
                 $this->dbhost = $dbhost;
                 $this->dbname = $dbname;
                 $this->dbuser = $dbuser;
                 $this->dbpwd = $dbpwd;
+        }
 
-                $dsn = "mysql:host=$dbhost;dbname=$dbname";
-                $dboptions = array(
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-                );
+        public function getConnection() {
 
                 try {
-                        $this->pdo = new PDO($dsn, $dbuser, $dbpwd, $dboptions);
+                        $connect = new PDO('mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpwd');
+                        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        echo "Connected successfully";
+                        return $connect;
+                    
                 } catch (PDOException $e) {
-                        die("Something went wrong : " . $e->getMessage());
+                        die("Connection failed : " . $e->getMessage());
                 }
-        }
-
-        public function executeQuery($query, $params = array())
-        {
-                $stmt = $this->pdo->prepare($query);
-                $stmt->execute($params);
-                return $stmt;
+        
         }
 }
-
-$db = new Database('localhost', 'article', 'root', '' );
 
 ?>

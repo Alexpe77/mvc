@@ -1,4 +1,4 @@
-<?php require '../includes/header.php'?>
+<?php require '../view/includes/header.php'?>
 
 <?php // Use any data loaded in the controller here ?>
 
@@ -11,4 +11,4 @@
     </ul>
 </section>
 
-<?php require '../includes/footer.php'?>
+<?php require '../view/includes/footer.php'?>
