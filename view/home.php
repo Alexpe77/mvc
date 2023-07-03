@@ -1,7 +1,6 @@
 <?php require 'View/includes/header.php' ?>
 
-<?php // Use any data loaded in the controller here 
-?>
+<?php // Use any data loaded in the controller here ?>
 
 <section>
     <p><a href="index.php?page=articles-index">To articles page</a></p>

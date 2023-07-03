@@ -18,7 +18,7 @@ class Article
     }
 
     // TODO: return the date in the required format
-    public function formatPublishDate($format = 'D d-m-Y')
+    public function formatPublishDate($format = 'd-m-Y')
     {
         $formattedDate = date($format, strtotime($this->publishDate));
 
